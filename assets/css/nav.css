@@ -1,0 +1,168 @@
+/* ─── Background Blobs ─────────────────────────── */
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.blob-purple {
+    background: #d8b4fe;
+    width: 450px;
+    height: 450px;
+    top: -120px;
+    left: -100px;
+    animation: blobFloat 8s ease-in-out infinite alternate;
+}
+
+.blob-orange {
+    background: #ffedd5;
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -100px;
+    animation: blobFloat 10s ease-in-out infinite reverse alternate;
+}
+
+@keyframes blobFloat {
+    0%   { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-22px) scale(1.05); }
+}
+
+/* ─── Header ───────────────────────────────────── */
+.site-header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ─── Brand Logo ───────────────────────────────── */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+}
+
+.brand-logo:hover {
+    transform: translateY(-1px);
+}
+
+.logo-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: #fff;
+    border: 1px solid rgba(140, 82, 255, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(140, 82, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.brand-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: 'Outfit', 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.4px;
+    line-height: 1.1;
+}
+
+.gradient-purple {
+    background: linear-gradient(135deg, #8c52ff 0%, #6d28d9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-orange {
+    background: linear-gradient(135deg, #ff7a00 0%, #ea580c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.brand-subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* ─── GitHub Star Badge (With Subtle Border) ───── */
+.github-star-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 16px;
+    background: #f4f5f8;
+    color: #1f2937;
+    border: 1px solid rgba(229, 231, 235, 0.95);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.github-star-badge:hover {
+    background: #eef0f5;
+    border-color: #d1d5db;
+    color: #000000;
+    transform: translateY(-1px);
+}
+
+.github-icon {
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.star-count {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1f2937;
+}
+
+/* ─── Responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+    .github-star-badge {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .brand-name {
+        font-size: 1.1rem;
+    }
+
+    .header-inner {
+        padding: 14px 16px;
+    }
+}

@@ -1,0 +1,25 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Allow CORS Headers for static assets
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "*"
+</IfModule>
+
+# Always serve assets directly (Prevent 404 or redirect rewrite)
+RewriteRule ^assets/ - [L]
+
+# Allow direct access to real existing files and directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Route short codes (e.g. /aBc12XyZ) to redirect.php
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ redirect.php?code=$1 [L,QSA]
