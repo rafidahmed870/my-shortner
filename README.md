@@ -54,6 +54,12 @@ For XAMPP or WampServer:
 - JavaScript
 - Apache
 
+## Donation
+
+If you find this project useful, you can support me with a coffee.
+
+**BTC:** `12dxgVQ3sRFhc4g7M6oydsN2tTMMthJJqS`
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
